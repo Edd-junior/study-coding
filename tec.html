@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore - Aula Prática</title>
-    
+    <title>TechStore - Aula Prática Final</title>
+   
+    <!-- Framework Bootstrap para botões e container -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+
     <style>
-        /* CSS AVANÇADO: VARIÁREIS (Aula 1) */
         :root {
-            --cor-primaria: rgb(138, 7, 252);
-            --cor-secundaria: rgb(255, 252, 252);
+            --cor-primaria: #1a1a1a;
+            --cor-secundaria: #333333;
             --espacamento: 20px;
         }
 
+
         body {
-            background-color: rgb(40, 37, 37);
+            color: white;
+            background-color: #121212;
             font-family: sans-serif;
+            margin: 0;
+            min-height: 100vh;
         }
 
-        /* HIERARQUIA E NESTING (Aula 1 - Simulado) */
+
         .cabecalho-store {
             background-color: var(--cor-primaria);
             color: white;
@@ -28,79 +33,134 @@
             text-align: center;
         }
 
-        /* GRID E RESPONSIVIDADE (Aula 3) */
+
+        /* Grid que força todos os cards da mesma linha a terem a mesma altura */
         .galeria-produtos {
             display: grid;
             gap: 15px;
             padding: 20px;
-            /* Mobile First: 1 coluna por padrão */
             grid-template-columns: 1fr;
+            grid-auto-rows: 1fr;
         }
 
-        /* MEDIA QUERIES: Ajuste para telas maiores */
+
         @media (min-width: 768px) {
             .galeria-produtos {
-                grid-template-columns: repeat(3, 1fr); /* 3 colunas no PC */
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
+
         .cartao-produto {
-            background: rgb(38, 36, 36);
-            border: 1px solid #ece2e2;
-            border-radius: 8px;
+            background: #222;
+            border: 1px solid #444;
             padding: 15px;
             text-align: center;
-            transition: transform 0.3s
+            transition: transform 0.3s;
+            border-radius: 8px;
+            /* Flexbox para alinhar o conteúdo interno verticalmente */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
-        
+
+
+        /* Padronização das imagens para alinhar o início do texto */
+        .cartao-produto img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background-color: white;
+            border-radius: 4px;
+            padding: 10px;
+            /* Borda subtil para ajudar a ver o espaço da imagem enquanto não carrega */
+            border: 1px dashed #666;
+        }
+
+
         .cartao-produto:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(255, 254, 254, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
+
 
         .cartao-produto h5 {
             color: white !important;
+            margin-top: 15px;
+            /* Altura mínima para títulos de diferentes tamanhos */
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+       
+        .cartao-produto .text-muted {
+            color: #ccc !important;
+            margin-bottom: 15px;
         }
 
+
+        /* Empurra o botão sempre para o final do card */
+        .cartao-produto .btn {
+            margin-top: auto;
+        }
+
+
+        footer {
+            border-top: 1px solid #333;
+        }
     </style>
 </head>
 <body>
 
+
     <header class="cabecalho-store">
         <h1>TechStore Especialista</h1>
-        <p>Aprenda CSS, Bootstrap e Grid na prática!</p>
+        <p>Projeto Final: CSS Avançado, Bootstrap e Grid Layout</p>
     </header>
+
 
     <main class="container">
         <section class="galeria-produtos mt-4">
-            
+           
+            <!-- Produto 1 -->
             <div class="cartao-produto">
-                <img src="https://via.placeholder.com/150" alt="Produto" class="img-fluid mb-2">
+                <!-- Verifique se o nome é smartphone.jpg ou smartphone.png -->
+                <img src="phone.png" alt="phone" class="img-fluid mb-2">
                 <h5>Smartphone X</h5>
-                <p class="text-muted">R$ 1.450,00</p>
-                <button class="btn btn-success w-100">Comprar Agora</button>
+                <p class="text-muted">R$ 1.999,00</p>
+                <button class="btn btn-primary w-100">Comprar Agora</button>
             </div>
 
+
+            <!-- Produto 2 -->
             <div class="cartao-produto">
-                <img src="https://via.placeholder.com/150" alt="Produto" class="img-fluid mb-2">
+                <!-- Verifique se o nome é notebook.jpg ou notebook.png -->
+                <img src="note.png" alt="note" class="img-fluid mb-2">
                 <h5>Notebook Pro</h5>
-                <p class="text-muted">R$ 3.500,00</p>
-                <button class="btn btn-danger w-100">Ver Detalhes</button>
+                <p class="text-muted">R$ 4.500,00</p>
+                <button class="btn btn-warning w-100">Ver Detalhes</button>
             </div>
 
+
+            <!-- Produto 3 -->
             <div class="cartao-produto">
-                <img src="https://via.placeholder.com/150" alt="Produto" class="img-fluid mb-2">
+                <!-- Verifique se o nome é fone.jpg ou fone.png -->
+                <img src="fone.png" alt="fone" class="img-fluid mb-2">
                 <h5>Fone Bluetooth</h5>
-                <p class="text-muted">R$ 199,00</p>
-                <button class="btn btn-primary w-100 text-white">Adicionar</button>
+                <p class="text-muted">R$ 299,00</p>
+                <button class="btn btn-success w-100">Adicionar</button>
             </div>
+
 
         </section>
     </main>
 
-    <footer class="text-center mt-5 p-4 border-top">
+
+    <footer class="text-center mt-5 p-4">
         <p>&copy; 2024 TechStore - Atividade Integrada SEDUC-SP</p>
     </footer>
+
 
 </body>
 </html>
